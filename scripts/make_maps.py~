@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+'''
+##############################################################
+# Author:               John Vant
+# Email:              jvant@asu.edu
+# Affiliation:   ASU Biodesign Institute
+# Date Created:          210710
+##############################################################
+# Usage:
+##############################################################
+# Notes:
+##############################################################
+'''
+# Imports
+import os
+import numpy as np
+
+def mymkdir(s):
+    if not os.path.exists(s):
+        os.makedirs(s)
+    else:
+        print("\nThe dir exists!!!\n%s\n" % s)
+
+
+        
+class System:
+    
+
+    def __init__(self, pdbid, exp_method):
+        self.pdbid = pdbid
+        self.exp_method = exp_method
+        mymkdir("./systems/%s" % (self.exp_method))
+
+    def __str__(self):
+        return f"\nPDBID: {self.pdbid}\nExperimental Method: {self.exp_method}"
+
+    def create_dir(self, sound):
+        
+        return f"{self.name} says {sound}"
+
+
+
+
+
+if __name__ == "__main__":
+    while not os.path.isdir(".git") or not os.path.isdir("systems"):
+        os.chdir("..")
+        print("now in %s" % (os.getcwd()))
